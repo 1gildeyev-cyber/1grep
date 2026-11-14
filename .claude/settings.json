@@ -1,0 +1,48 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install)",
+      "Bash(pnpm dev)",
+      "Bash(pnpm build)",
+      "Bash(pnpm start)",
+      "Bash(pnpm lint)",
+      "Bash(pnpm test)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm test:unit)",
+      "Bash(pnpm check-brief)",
+      "Bash(pnpm exec tsc:*)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm remove:*)",
+      "Bash(pnpm dlx shadcn@*)",
+      "Bash(pnpm dlx shadcn *)",
+      "Bash(pnpm -v)",
+      "Bash(node -v)",
+      "Bash(corepack enable pnpm)",
+      "Bash(npm install -g pnpm)",
+      "Bash(node scripts/*)",
+      "Bash(git status)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(curl *localhost:*)",
+      "Bash(curl *https://*)",
+      "Bash(lsof -nP -iTCP:* -sTCP:LISTEN)",
+      "Bash(kill *)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/typecheck-hook.mjs\""
+          }
+        ]
+      }
+    ]
+  }
+}
